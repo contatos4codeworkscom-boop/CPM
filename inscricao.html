@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - CPM Campeonato Paulista de MamoBall</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="inscricao-styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="cpm.png" alt="CPM - Campeonato Paulista de MamoBall" class="logo-image">
+                <div class="logo-text">
+                    <span class="logo-subtitle">Campeonato Paulista de MamoBall</span>
+                </div>
+            </a>
+            <a href="index.html" class="back-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+                <span>Voltar</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="form-header">
+                <h1>Inscrição do Time</h1>
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Dados do Clube</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Jogadores</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Confirmação</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="inscricaoForm" class="form">
+                <!-- Step 1: Club Data -->
+                <div class="step active" data-step="1">
+                    <div class="step-content">
+                        <h2>Dados do Clube</h2>
+                        
+                        <div class="form-group">
+                            <label for="clubLogo" class="file-upload-label">
+                                <div class="file-upload-area" id="logoUploadArea">
+                                    <div class="upload-placeholder">
+                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+                                            <circle cx="12" cy="13" r="3"/>
+                                        </svg>
+                                        <p>Carregar Logo do Clube</p>
+                                        <small>PNG, JPG ou GIF (máx. 5MB)</small>
+                                    </div>
+                                    <img id="logoPreview" class="logo-preview" style="display: none;" />
+                                </div>
+                                <input type="file" id="clubLogo" accept="image/*" required style="display: none;">
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="clubName">Nome do Clube *</label>
+                            <input type="text" id="clubName" required placeholder="Digite o nome do clube">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ownerName">Nome do Dono/Capitão *</label>
+                            <input type="text" id="ownerName" required placeholder="Digite o nome do responsável">
+                        </div>
+                    </div>
+
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Players -->
+                <div class="step" data-step="2">
+                    <div class="step-content">
+                        <h2>Jogadores do Time</h2>
+                        <p class="step-description">Adicione entre 6 e 10 jogadores. Um deles deve ser marcado como capitão.</p>
+                        
+                        <div class="players-header">
+                            <span class="players-count">Jogadores: <span id="playersCount">0</span>/10</span>
+                            <button type="button" class="btn btn-secondary" id="addPlayerBtn" onclick="addPlayer()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"/>
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                </svg>
+                                Adicionar Jogador
+                            </button>
+                        </div>
+
+                        <div id="playersContainer" class="players-container">
+                            <!-- Players will be added dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Voltar</button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep()">Próximo</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Confirmation -->
+                <div class="step" data-step="3">
+                    <div class="step-content">
+                        <h2>Confirmação dos Dados</h2>
+                        <div id="confirmationData" class="confirmation-data">
+                            <!-- Confirmation data will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="step-buttons">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Voltar</button>
+                        <button type="button" class="btn btn-primary" onclick="submitForm()">Finalizar Inscrição</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Inscrição Finalizada!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Sua inscrição foi processada com sucesso. Você será redirecionado para o WhatsApp para enviar os dados ao administrador.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="sendToWhatsApp()">Enviar via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <script src="inscricao-script.js"></script>
+</body>
+</html>
