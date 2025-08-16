@@ -467,3 +467,262 @@ body {
         font-size: 1.125rem;
     }
 }
+
+/* Seção de Transmissão Ao Vivo */
+.live-stream {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.live-stream::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.live-stream-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.live-stream-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.live-stream-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.live-indicator {
+    animation: pulse 2s infinite;
+    font-size: 1.5rem;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.live-stream-description {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.live-stream-content {
+    margin-bottom: 3rem;
+}
+
+.stream-placeholder {
+    background: #fff;
+    border-radius: 16px;
+    padding: 4rem 2rem;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 2px dashed #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.stream-placeholder:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+.stream-placeholder-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.stream-placeholder-content svg {
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+
+.stream-placeholder-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.75rem;
+}
+
+.stream-placeholder-content p {
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+}
+
+.stream-note {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.youtube-stream {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.live-stream-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.stream-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fbbf24;
+    animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+.status-text {
+    font-weight: 500;
+    color: #374151;
+}
+
+.stream-schedule {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stream-schedule h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.schedule-list {
+    list-style: none;
+}
+
+.schedule-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.schedule-list li:last-child {
+    border-bottom: none;
+}
+
+.time {
+    font-weight: 600;
+    color: #059669;
+    min-width: 60px;
+}
+
+.teams {
+    color: #374151;
+    font-weight: 500;
+}
+
+/* Responsividade para a seção de transmissão */
+@media (max-width: 768px) {
+    .live-stream {
+        padding: 3rem 0;
+    }
+    
+    .live-stream-container {
+        padding: 0 1rem;
+    }
+    
+    .live-stream-title {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .live-stream-description {
+        font-size: 1.125rem;
+    }
+    
+    .stream-placeholder {
+        padding: 3rem 1.5rem;
+    }
+    
+    .live-stream-info {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .stream-status,
+    .stream-schedule {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .live-stream-title {
+        font-size: 1.75rem;
+    }
+    
+    .live-stream-description {
+        font-size: 1rem;
+    }
+    
+    .stream-placeholder {
+        padding: 2rem 1rem;
+    }
+    
+    .stream-placeholder-content h3 {
+        font-size: 1.25rem;
+    }
+}
