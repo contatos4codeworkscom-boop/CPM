@@ -1,0 +1,567 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cal Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+.logo-subtitle {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+}
+
+.back-btn {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+    color: white;
+    border: none;
+    padding: 0.875rem 1.75rem;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Main Content */
+.main-content {
+    padding-top: 80px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 80px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hero-pattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23hero-pattern)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-icon {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-icon svg {
+    color: white;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Regulamento Section */
+.regulamento-section {
+    background: #f8fafc;
+    padding: 80px 0;
+    position: relative;
+}
+
+.regulamento-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.rule-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.rule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--card-color, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
+}
+
+.rule-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.rule-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    background: var(--icon-bg, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
+    box-shadow: 0 8px 20px var(--icon-shadow, rgba(102, 126, 234, 0.3));
+}
+
+.rule-icon svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+.rule-content {
+    flex: 1;
+}
+
+.rule-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+}
+
+.rule-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.rule-text strong {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Icon Color Variations */
+.rule-icon.respect {
+    --icon-bg: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    --icon-shadow: rgba(72, 187, 120, 0.3);
+    --card-color: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.rule-icon.notification {
+    --icon-bg: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    --icon-shadow: rgba(66, 153, 225, 0.3);
+    --card-color: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+}
+
+.rule-icon.schedule {
+    --icon-bg: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+    --icon-shadow: rgba(237, 137, 54, 0.3);
+    --card-color: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+}
+
+.rule-icon.time {
+    --icon-bg: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+    --icon-shadow: rgba(159, 122, 234, 0.3);
+    --card-color: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+}
+
+.rule-icon.team {
+    --icon-bg: linear-gradient(135deg, #38b2ac 0%, #319795 100%);
+    --icon-shadow: rgba(56, 178, 172, 0.3);
+    --card-color: linear-gradient(135deg, #38b2ac 0%, #319795 100%);
+}
+
+.rule-icon.content {
+    --icon-bg: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+    --icon-shadow: rgba(245, 101, 101, 0.3);
+    --card-color: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+}
+
+.rule-icon.character {
+    --icon-bg: linear-gradient(135deg, #4fd1c7 0%, #38b2ac 100%);
+    --icon-shadow: rgba(79, 209, 199, 0.3);
+    --card-color: linear-gradient(135deg, #4fd1c7 0%, #38b2ac 100%);
+}
+
+.rule-icon.roster {
+    --icon-bg: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+    --icon-shadow: rgba(252, 129, 129, 0.3);
+    --card-color: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+}
+
+.rule-icon.judge {
+    --icon-bg: linear-gradient(135deg, #68d391 0%, #48bb78 100%);
+    --icon-shadow: rgba(104, 211, 145, 0.3);
+    --card-color: linear-gradient(135deg, #68d391 0%, #48bb78 100%);
+}
+
+.rule-icon.lag {
+    --icon-bg: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%);
+    --icon-shadow: rgba(251, 182, 206, 0.3);
+    --card-color: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%);
+}
+
+.rule-icon.fair {
+    --icon-bg: linear-gradient(135deg, #90cdf4 0%, #63b3ed 100%);
+    --icon-shadow: rgba(144, 205, 244, 0.3);
+    --card-color: linear-gradient(135deg, #90cdf4 0%, #63b3ed 100%);
+}
+
+.rule-icon.chat {
+    --icon-bg: linear-gradient(135deg, #fbd38d 0%, #f6ad55 100%);
+    --icon-shadow: rgba(251, 211, 141, 0.3);
+    --card-color: linear-gradient(135deg, #fbd38d 0%, #f6ad55 100%);
+}
+
+.rule-icon.penalty {
+    --icon-bg: linear-gradient(135deg, #feb2b2 0%, #fc8181 100%);
+    --icon-shadow: rgba(254, 178, 178, 0.3);
+    --card-color: linear-gradient(135deg, #feb2b2 0%, #fc8181 100%);
+}
+
+.rule-icon.tie {
+    --icon-bg: linear-gradient(135deg, #faf089 0%, #f6e05e 100%);
+    --icon-shadow: rgba(250, 240, 137, 0.3);
+    --card-color: linear-gradient(135deg, #faf089 0%, #f6e05e 100%);
+}
+
+.rule-icon.bench {
+    --icon-bg: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+    --icon-shadow: rgba(198, 246, 213, 0.3);
+    --card-color: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+}
+
+.rule-icon.coach {
+    --icon-bg: linear-gradient(135deg, #e9d8fd 0%, #d6bcfa 100%);
+    --icon-shadow: rgba(233, 216, 253, 0.3);
+    --card-color: linear-gradient(135deg, #e9d8fd 0%, #d6bcfa 100%);
+}
+
+.rule-icon.irregular {
+    --icon-bg: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+    --icon-shadow: rgba(254, 215, 215, 0.3);
+    --card-color: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+}
+
+.rule-icon.update {
+    --icon-bg: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+    --icon-shadow: rgba(190, 227, 248, 0.3);
+    --card-color: linear-gradient(135deg, #bee3f8 0%, #90cdf4 100%);
+}
+
+.rule-icon.room {
+    --icon-bg: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%);
+    --icon-shadow: rgba(251, 182, 206, 0.3);
+    --card-color: linear-gradient(135deg, #fbb6ce 0%, #f687b3 100%);
+}
+
+.rule-icon.false-claim {
+    --icon-bg: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+    --icon-shadow: rgba(252, 211, 77, 0.3);
+    --card-color: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%);
+}
+
+/* Footer Section */
+.regulamento-footer {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.author-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.author-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.author-icon svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.original-author {
+    font-size: 1.125rem;
+    color: #64748b;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    background: #1a202c;
+    color: white;
+    padding: 3rem 0 1.5rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.footer-logo {
+    height: 40px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-description {
+    color: #a0aec0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-contact {
+    list-style: none;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #2d3748;
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .rules-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .rule-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 1rem;
+    }
+    
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.125rem;
+    }
+    
+    .regulamento-section {
+        padding: 60px 0;
+    }
+    
+    .regulamento-container {
+        padding: 0 1rem;
+    }
+    
+    .rules-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .rule-card {
+        padding: 1.25rem;
+    }
+    
+    .rule-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .rule-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .rule-title {
+        font-size: 1.125rem;
+    }
+    
+    .rule-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .back-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.85rem;
+    }
+    
+    .rule-card {
+        padding: 1rem;
+    }
+    
+    .regulamento-footer {
+        padding: 1.5rem;
+    }
+    
+    .author-section {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
