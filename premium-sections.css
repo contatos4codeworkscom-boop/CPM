@@ -1,0 +1,953 @@
+/* Premium Sections Styles - Minimalista e Elegante */
+
+/* Inscription Section - Design Premium */
+.inscription-section {
+    background: linear-gradient(180deg, #fafbfc 0%, #f8fafc 100%);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.inscription-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.inscription-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.inscription-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+}
+
+.inscription-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.visual-backdrop {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        conic-gradient(from 0deg at 50% 50%, 
+        rgba(99, 102, 241, 0.1) 0deg, 
+        transparent 60deg, 
+        transparent 120deg, 
+        rgba(59, 130, 246, 0.1) 180deg, 
+        transparent 240deg, 
+        transparent 300deg, 
+        rgba(99, 102, 241, 0.1) 360deg);
+    animation: rotate 20s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.inscription-icon {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    animation: levitate 4s ease-in-out infinite;
+}
+
+@keyframes levitate {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.inscription-icon::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #6366f1, #8b5cf6, #06b6d4);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.inscription-icon:hover::before {
+    opacity: 1;
+}
+
+.inscription-icon svg {
+    color: white;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.inscription-icon:hover svg {
+    transform: scale(1.05);
+}
+
+.inscription-metrics {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 20px 40px -5px rgba(0, 0, 0, 0.15),
+        0 16px 20px -6px rgba(0, 0, 0, 0.1);
+}
+
+.metric-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1e293b, #3730a3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+}
+
+.metric-trend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: #059669;
+    font-weight: 600;
+}
+
+.metric-trend svg {
+    color: #059669;
+}
+
+.metric-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(30, 41, 59, 0.05);
+    border: 1px solid rgba(30, 41, 59, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.section-badge:hover {
+    background: rgba(30, 41, 59, 0.08);
+    transform: translateY(-1px);
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+.inscription-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
+}
+
+.title-highlight {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.inscription-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    font-weight: 400;
+}
+
+.inscription-features {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover .feature-icon {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-color: transparent;
+    transform: scale(1.05);
+}
+
+.feature-icon svg {
+    color: #6366f1;
+    transition: color 0.3s ease;
+}
+
+.feature-item:hover .feature-icon svg {
+    color: white;
+}
+
+.feature-content h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.feature-content p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.inscription-action {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inscription-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    align-self: flex-start;
+    box-shadow: 
+        0 10px 25px -5px rgba(30, 41, 59, 0.3),
+        0 8px 10px -6px rgba(30, 41, 59, 0.3);
+}
+
+.inscription-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.inscription-cta:hover::before {
+    left: 100%;
+}
+
+.inscription-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 20px 40px -5px rgba(30, 41, 59, 0.4),
+        0 16px 20px -6px rgba(30, 41, 59, 0.3);
+}
+
+.cta-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.inscription-cta:hover .cta-icon {
+    transform: translateX(2px);
+}
+
+.inscription-note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.inscription-note svg {
+    color: #22c55e;
+}
+
+/* WhatsApp Section - Design Premium */
+.whatsapp-section {
+    background: linear-gradient(135deg, #0f766e 0%, #059669 100%);
+    padding: 120px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.whatsapp-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.whatsapp-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.whatsapp-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+}
+
+.whatsapp-badge {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+}
+
+.whatsapp-dot {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.whatsapp-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.025em;
+}
+
+.whatsapp-description {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+}
+
+.whatsapp-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.benefit-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover .benefit-icon {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.benefit-icon svg {
+    color: white;
+}
+
+.benefit-content h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.benefit-content p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.whatsapp-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    color: #059669;
+    padding: 1.5rem 2.5rem;
+    border-radius: 16px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    align-self: flex-start;
+    box-shadow: 
+        0 10px 25px -5px rgba(0, 0, 0, 0.3),
+        0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-cta:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 20px 40px -5px rgba(0, 0, 0, 0.4),
+        0 16px 20px -6px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-cta .cta-icon {
+    width: 24px;
+    height: 24px;
+    background: rgba(5, 150, 105, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-cta:hover .cta-icon {
+    transform: translateX(2px);
+}
+
+.whatsapp-note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.whatsapp-note svg {
+    color: #22c55e;
+}
+
+.whatsapp-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.whatsapp-backdrop {
+    background: 
+        conic-gradient(from 180deg at 50% 50%, 
+        rgba(255, 255, 255, 0.1) 0deg, 
+        transparent 60deg, 
+        transparent 120deg, 
+        rgba(255, 255, 255, 0.05) 180deg, 
+        transparent 240deg, 
+        transparent 300deg, 
+        rgba(255, 255, 255, 0.1) 360deg);
+    animation: rotate 25s linear infinite reverse;
+}
+
+.phone-mockup {
+    position: relative;
+    z-index: 2;
+}
+
+.phone-frame {
+    width: 320px;
+    height: 640px;
+    background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    border-radius: 40px;
+    padding: 8px;
+    box-shadow: 
+        0 30px 60px -12px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.phone-notch {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 28px;
+    background: #000;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.notch-camera {
+    width: 6px;
+    height: 6px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.notch-speaker {
+    width: 40px;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #e5ddd5;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+}
+
+.whatsapp-interface {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background: linear-gradient(135deg, #075e54, #128c7e);
+    padding: 60px 20px 16px;
+    border-radius: 32px 32px 0 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #25D366, #128c7e);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.online-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background: #22c55e;
+    border: 2px solid #075e54;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+
+.chat-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+}
+
+.chat-info span {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.message-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: messageSlide 0.3s ease-out;
+}
+
+@keyframes messageSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.received {
+    background: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.message.sent {
+    background: #dcf8c6;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.message.highlight {
+    background: linear-gradient(135deg, #dcf8c6, #c8e6c9);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.sender-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #25D366;
+}
+
+.message-time {
+    font-size: 0.65rem;
+    color: #64748b;
+    opacity: 0.7;
+}
+
+.message p {
+    font-size: 0.8rem;
+    margin: 0;
+    color: #1a1a1a;
+    line-height: 1.4;
+}
+
+.community-metrics {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.whatsapp-metric {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.whatsapp-metric .metric-number {
+    background: linear-gradient(135deg, white, rgba(255, 255, 255, 0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.whatsapp-metric .metric-label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.metric-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.indicator-dot.active {
+    background: #22c55e;
+    animation: pulse-dot 2s infinite;
+}
+
+.indicator-dot.pulse {
+    background: #fbbf24;
+    animation: pulse-dot 1.5s infinite;
+}
+
+/* Responsive Design Premium */
+@media (max-width: 1200px) {
+    .inscription-content,
+    .whatsapp-content {
+        gap: 6rem;
+    }
+    
+    .inscription-title,
+    .whatsapp-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .inscription-content,
+    .whatsapp-content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        text-align: center;
+    }
+    
+    .whatsapp-visual {
+        order: -1;
+    }
+    
+    .inscription-metrics,
+    .community-metrics {
+        justify-content: center;
+    }
+    
+    .inscription-cta,
+    .whatsapp-cta {
+        align-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .inscription-section,
+    .whatsapp-section {
+        padding: 80px 0;
+    }
+    
+    .inscription-container,
+    .whatsapp-container {
+        padding: 0 1rem;
+    }
+    
+    .inscription-title,
+    .whatsapp-title {
+        font-size: 2.5rem;
+    }
+    
+    .inscription-description,
+    .whatsapp-description {
+        font-size: 1.125rem;
+    }
+    
+    .inscription-metrics,
+    .community-metrics {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .phone-frame {
+        width: 280px;
+        height: 560px;
+    }
+    
+    .inscription-features,
+    .whatsapp-benefits {
+        gap: 1.5rem;
+    }
+    
+    .feature-item,
+    .benefit-item {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .inscription-title,
+    .whatsapp-title {
+        font-size: 2rem;
+    }
+    
+    .inscription-description,
+    .whatsapp-description {
+        font-size: 1rem;
+    }
+    
+    .feature-item,
+    .benefit-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .inscription-cta,
+    .whatsapp-cta {
+        padding: 1.25rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .phone-frame {
+        width: 240px;
+        height: 480px;
+    }
+}
