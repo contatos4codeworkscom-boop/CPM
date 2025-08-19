@@ -113,23 +113,49 @@
     transform: scale(1.05);
 }
 
-.inscription-metrics {
+/* Metrics Carousel Styles */
+.metrics-carousel-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.metrics-carousel {
     display: flex;
-    gap: 1.5rem;
+    animation: scroll-metrics 25s linear infinite;
+    width: calc(200% + 3rem); /* Width for seamless loop */
+}
+
+@keyframes scroll-metrics {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1.5rem)); }
+}
+
+.metrics-carousel:hover {
+    animation-play-state: paused;
 }
 
 .metric-card {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 2rem 1.5rem;
-    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
     text-align: center;
     position: relative;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 
-        0 10px 25px -5px rgba(0, 0, 0, 0.1),
-        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        0 8px 20px -5px rgba(0, 0, 0, 0.1),
+        0 4px 8px -4px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
 }
 
 .metric-card:hover {
@@ -252,11 +278,27 @@
     font-weight: 400;
 }
 
-.inscription-features {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+/* Features Carousel Styles */
+.features-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
     margin-bottom: 3rem;
+}
+
+.features-carousel {
+    display: flex;
+    animation: scroll-features 30s linear infinite;
+    width: calc(200% + 2rem); /* Width for seamless loop */
+}
+
+@keyframes scroll-features {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+.features-carousel:hover {
+    animation-play-state: paused;
 }
 
 .feature-item {
@@ -264,11 +306,14 @@
     align-items: flex-start;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 380px;
+    margin-right: 2rem;
+    flex-shrink: 0;
 }
 
 .feature-item:hover {
@@ -853,6 +898,10 @@
     .whatsapp-title {
         font-size: 3rem;
     }
+    
+    .feature-item {
+        min-width: 350px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -867,7 +916,6 @@
         order: -1;
     }
     
-    .inscription-metrics,
     .community-metrics {
         justify-content: center;
     }
@@ -875,6 +923,20 @@
     .inscription-cta,
     .whatsapp-cta {
         align-self: center;
+    }
+    
+    .feature-item {
+        min-width: 320px;
+        margin-right: 1.5rem;
+    }
+    
+    .metric-card {
+        min-width: 160px;
+        margin-right: 1rem;
+    }
+    
+    .metrics-carousel-container {
+        max-width: 100%;
     }
 }
 
@@ -899,7 +961,6 @@
         font-size: 1.125rem;
     }
     
-    .inscription-metrics,
     .community-metrics {
         flex-direction: column;
         align-items: center;
@@ -910,14 +971,50 @@
         height: 560px;
     }
     
-    .inscription-features,
     .whatsapp-benefits {
         gap: 1.5rem;
     }
     
-    .feature-item,
     .benefit-item {
         padding: 1.25rem;
+    }
+    
+    /* Mobile Carousel Adjustments */
+    .feature-item {
+        min-width: 280px;
+        margin-right: 1rem;
+        padding: 1.25rem;
+    }
+    
+    .metric-card {
+        min-width: 140px;
+        margin-right: 0.75rem;
+        padding: 1.25rem 1rem;
+    }
+    
+    .metric-number {
+        font-size: 2rem;
+    }
+    
+    .metric-label {
+        font-size: 0.8rem;
+    }
+    
+    .feature-content h4 {
+        font-size: 1rem;
+    }
+    
+    .feature-content p {
+        font-size: 0.9rem;
+    }
+    
+    /* Faster animation on mobile */
+    .metrics-carousel {
+        animation: scroll-metrics 20s linear infinite;
+    }
+    
+    .features-carousel {
+        animation: scroll-features 25s linear infinite;
     }
 }
 
@@ -932,7 +1029,6 @@
         font-size: 1rem;
     }
     
-    .feature-item,
     .benefit-item {
         flex-direction: column;
         align-items: center;
@@ -949,5 +1045,51 @@
     .phone-frame {
         width: 240px;
         height: 480px;
+    }
+    
+    /* Extra small mobile adjustments */
+    .feature-item {
+        min-width: 250px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        margin-right: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .metric-card {
+        min-width: 120px;
+        padding: 1rem 0.75rem;
+        margin-right: 0.5rem;
+    }
+    
+    .metric-number {
+        font-size: 1.75rem;
+    }
+    
+    .metric-label {
+        font-size: 0.75rem;
+    }
+    
+    .feature-content h4 {
+        font-size: 0.95rem;
+    }
+    
+    .feature-content p {
+        font-size: 0.85rem;
+    }
+    
+    /* Even faster animation on small mobile */
+    .metrics-carousel {
+        animation: scroll-metrics 15s linear infinite;
+    }
+    
+    .features-carousel {
+        animation: scroll-features 20s linear infinite;
+    }
+    
+    .metrics-carousel-container {
+        border-radius: 16px;
     }
 }
